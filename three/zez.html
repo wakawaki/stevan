@@ -1,0 +1,379 @@
+
+
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>canvas { width: 100%; height: 100% }</style>
+	</head>
+	<body>
+		<script src="https://rawgithub.com/mrdoob/three.js/master/build/three.js"></script>
+<script src="D:/three/three/build/three.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera(15, window.innerWidth/window.innerHeight, .1, 1000);
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+
+			texture = THREE.ImageUtils.loadTexture('aaa.png', {}, function() { renderer.render(scene);});
+			
+     		        material = new THREE.MeshBasicMaterial({map: texture});
+
+var texKrov = THREE.ImageUtils.loadTexture( 'zgrada1.png' );
+// enable repeating
+texKrov.wrapS = THREE.RepeatWrapping;
+texKrov.wrapT = THREE.RepeatWrapping;
+texKrov.repeat.set( 1, 1);    // set repeat times
+    
+var matKrov =    new THREE.MeshLambertMaterial(
+    {
+        map : texKrov        // use repeated texture
+    });
+
+
+
+var carback1 = THREE.ImageUtils.loadTexture( 'carback1.png' );
+// enable repeating
+carback1.wrapS = THREE.RepeatWrapping;
+carback1.wrapT = THREE.RepeatWrapping;
+carback1.repeat.set( 1, 1);    // set repeat times
+    
+var matCarback1 =
+    new THREE.MeshLambertMaterial(
+    {
+        map : carback1        // use repeated texture
+    });
+
+
+
+
+
+
+			var geometry = new THREE.CubeGeometry(1,1,1);
+			var material = new THREE.MeshBasicMaterial({color: 0x000000});
+			var krov = new THREE.Mesh(geometry, matCarback1);
+
+			var crnaboja = new THREE.MeshBasicMaterial({color: 0x000000});
+			var telo = new THREE.CubeGeometry(1,.5,2.5);
+			var teloauta = new THREE.Mesh(telo, crnaboja);
+			
+			//scene.add(teloauta);
+			scene.add(krov);
+
+//THREE.GeometryUtils.merge(teloauta,krov);
+             //   var mesh = new THREE.Mesh( teloauta,new THREE.MeshLambertMaterial( { color: 0x2D303D, wireframe: true, shading: THREE.FlatShading } ));
+             //   scene.add(mesh);
+
+
+
+			teloauta.position.y=0;
+			krov.position.y=0.3;
+			krov.position.z=.5;
+
+
+//helikopter
+			var crnaboja = new THREE.MeshBasicMaterial({color: 0x000000});
+			var teloHelikoptera = new THREE.CubeGeometry(.5,.5,1.5);
+			var helikopter = new THREE.Mesh(teloHelikoptera, crnaboja);
+			scene.add(helikopter);
+			helikopter.position.z=3;
+			helikopter.position.x=6;
+helikopter.position.y=6;
+
+
+			
+			var oblikkrila = new THREE.CubeGeometry(3,.1,.3);
+			var krila = new THREE.Mesh(oblikkrila, crnaboja);
+			scene.add(krila);
+			krila.position.z=3;
+			krila.position.x=6;
+krila.position.y=6;
+
+krila.position.x=6;
+			
+			var oblikElise = new THREE.CubeGeometry(5.5,.1,.2);
+			var elisa = new THREE.Mesh(oblikElise, crnaboja);
+			scene.add(elisa);
+			elisa.position.z=3.5;
+			elisa.position.x=6;
+			elisa.position.y=6;
+
+			
+			var oblikRepa = new THREE.CubeGeometry(.2,1.5,.5);
+			var rep = new THREE.Mesh(oblikRepa, crnaboja);
+			scene.add(rep);
+			rep.position.z=3;
+			rep.position.x=6;
+			rep.position.y=5;
+			var oblikRepa1 = new THREE.CubeGeometry(.1,.5,.5);
+			var rep1 = new THREE.Mesh(oblikRepa1, crnaboja);
+			scene.add(rep1);
+			rep1.position.z=3.5;
+			rep1.position.x=6;
+			rep1.position.y=6;
+			
+
+
+// materiali
+  
+var texZgrada1 = THREE.ImageUtils.loadTexture( 'zgrada1.png' );
+// enable repeating
+texZgrada1.wrapS = THREE.RepeatWrapping;
+texZgrada1.wrapT = THREE.RepeatWrapping;
+texZgrada1.repeat.set( 1, 1);    // set repeat times
+    
+var matZgrada1 =
+    new THREE.MeshLambertMaterial(
+    {
+        map : texZgrada1        // use repeated texture
+    });
+
+var texZgrada2 = THREE.ImageUtils.loadTexture( 'zgrada2.jpg' );
+// enable repeating
+texZgrada2.wrapS = THREE.RepeatWrapping;
+texZgrada2.wrapT = THREE.RepeatWrapping;
+texZgrada2.repeat.set( 1, 1);    // set repeat times
+    
+var matZgrada2 =
+    new THREE.MeshLambertMaterial(
+    {
+        map : texZgrada2        // use repeated texture
+    });
+
+
+
+var texZgrada3 = THREE.ImageUtils.loadTexture( 'zgrada3.jpg' );
+// enable repeating
+texZgrada3.wrapS = THREE.RepeatWrapping;
+texZgrada3.wrapT = THREE.RepeatWrapping;
+texZgrada3.repeat.set( 1, 1);    // set repeat times
+    
+var matZgrada3 =
+    new THREE.MeshLambertMaterial(
+    {
+        map : texZgrada3        // use repeated texture
+    });
+
+var texZgrada4 = THREE.ImageUtils.loadTexture( 'zgrada4.jpg' );
+// enable repeating
+texZgrada4.wrapS = THREE.RepeatWrapping;
+texZgrada4.wrapT = THREE.RepeatWrapping;
+texZgrada4.repeat.set( 1, 1);    // set repeat times
+    
+var matZgrada4 =
+    new THREE.MeshLambertMaterial(
+    {
+        map : texZgrada4        // use repeated texture
+    });
+
+var texZgrada5 = THREE.ImageUtils.loadTexture( 'zgrada5.jpg' );
+// enable repeating
+texZgrada5.wrapS = THREE.RepeatWrapping;
+texZgrada5.wrapT = THREE.RepeatWrapping;
+texZgrada5.repeat.set( 1, 1);    // set repeat times
+    
+var matZgrada5 =
+    new THREE.MeshLambertMaterial(
+    {
+        map : texZgrada5        // use repeated texture
+    });
+
+
+
+
+
+
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(300, 300,-10), new THREE.MeshNormalMaterial());
+      plane.overdraw = true;
+      scene.add(plane);
+
+
+
+
+
+		
+			var oblikzgrade = new THREE.CubeGeometry(4,10,4);
+			var zgrada1 = new THREE.Mesh(oblikzgrade,matZgrada1);
+			scene.add(zgrada1);
+			zgrada1.position.z=1;
+			zgrada1.position.y=5;
+			zgrada1.position.x=-4;
+
+			var oblikzgrade1 = new THREE.CubeGeometry(20,6,4);
+			var zgrada5 = new THREE.Mesh(oblikzgrade1,matZgrada5);
+			scene.add(zgrada5);
+			zgrada5.position.z=-15;
+			zgrada5.position.y=2;
+			zgrada5.position.x=-4;
+
+
+
+
+
+
+			var belaboja = new THREE.MeshBasicMaterial({color: 0x550000});
+			var oblikzgrade = new THREE.CubeGeometry(4,4,10);
+			var zgrada1 = new THREE.Mesh(oblikzgrade, matZgrada4);
+			scene.add(zgrada1);
+			zgrada1.position.z=1;
+			zgrada1.position.y=2;
+zgrada1.position.x=5;
+
+
+			var belaboja = new THREE.MeshBasicMaterial({color: 0x550000});
+			var oblikzgrade = new THREE.CubeGeometry(5,5,15);
+			var zgrada2 = new THREE.Mesh(oblikzgrade, matZgrada3);
+			scene.add(zgrada2);
+			zgrada2.position.z=1;
+			zgrada2.position.y=2;
+			zgrada2.position.x=18;
+
+
+
+			var belaboja = new THREE.MeshBasicMaterial({color: 0xffffff});
+			var oblikzgrade = new THREE.CubeGeometry(5,8,15);
+			var zgrada3 = new THREE.Mesh(oblikzgrade, matZgrada2);
+			scene.add(zgrada3);
+			zgrada3.position.z=1;
+			zgrada3.position.y=3;
+			zgrada3.position.x=-8;
+
+
+			var belaboja = new THREE.MeshBasicMaterial({color: 0xcccccc});
+			var obliktla = new THREE.CubeGeometry(100,.1,100);
+			var tlo = new THREE.Mesh(obliktla, belaboja);
+			scene.add(tlo);
+			tlo.position.z=-10;
+			tlo.position.y=0;
+			tlo.position.x=0;
+
+
+
+			camera.position.z = 14;
+camera.position.y = 1;
+krov.add( camera );
+
+
+
+
+   // add subtle ambient lighting
+      var ambientLight = new THREE.AmbientLight(0xffffff);
+      scene.add(ambientLight);
+
+
+
+      // directional lighting
+      var directionalLight = new THREE.DirectionalLight(0xffffff);
+      directionalLight.position.set(1, 1, 1).normalize();
+      scene.add(directionalLight);
+
+
+directionalLight.castShadow = true;
+directionalLight.shadowDarkness = 0.5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// material
+      var material = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('tex.gif')
+      });
+                
+      // cube
+      var cube = new THREE.Mesh(new THREE.CubeGeometry(200, 200, 200), material);
+      cube.overdraw = true;
+      cube.rotation.x = Math.PI * 0.1;
+      scene.add(cube);
+
+
+
+
+
+			var render = function () {
+				requestAnimationFrame(render);
+
+				elisa.rotation.y += 0.3;
+				//krov.rotation.y += 0.1;
+			        //  krov.translateX(.1);   // translateX(vrednost)   za pomeranje
+ 
+				renderer.render(scene, camera);
+			};
+
+			render();
+
+
+// kontrole
+window.addEventListener('keydown', function(event) {
+  switch (event.keyCode) {
+    case 37: // Left
+    krov.translateX(-0.1); 
+   teloauta.translateX(-0.1);
+ 
+    teloauta.rotation.y += 0.1;
+    krov.rotation.y += 0.1;
+
+    renderer.render(scene, camera);
+
+    break;
+
+    case 38: // Up
+       krov.translateZ(-0.3); 
+	teloauta.translateZ(-0.3);
+//mesh.translateZ(-0.3);
+
+    renderer.render(scene, camera);
+    break;
+
+    case 39: // Right
+
+    krov.translateX(0.3); 
+ 
+   teloauta.translateX(0.3);
+    teloauta.rotation.y -= 0.3;
+    krov.rotation.y -= 0.3;
+  
+renderer.render(scene, camera);
+    
+    break;
+
+    case 40: // Down
+
+    krov.translateZ(+0.3); 
+    teloauta.translateZ(+0.3);
+//mesh.translateZ(+0.3);
+ 
+    renderer.render(scene, camera);
+
+    break;
+
+    case 34: // pgDown
+  
+camera.translate.y -= 500;
+
+    renderer.render(scene, camera);
+    break;
+
+    case 33: // pgUp
+   camera.rotation.x -= 0.1;
+camera.translate.y += 100;
+    renderer.render(scene, camera);
+    break;
+  }
+}, false);
+
+
+
+
+		</script>
+	</body>
+</html>
